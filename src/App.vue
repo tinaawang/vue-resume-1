@@ -34,6 +34,12 @@ export default {
     background: #dddddd;
 
   }
+  .icon {
+    width: 1em; height: 1em;
+    fill: currentColor;
+    vertical-align: -0.15em;
+    overflow: hidden;
+  }
   .wrapper{
     height:100%;
     display: flex;
@@ -44,6 +50,7 @@ export default {
     background:#ffffff;
     box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);
   }
+
   main{
     height:100%;
     display: flex;
@@ -53,17 +60,13 @@ export default {
   }
 
   main > .editor {
+    width: 35%;
 
-    margin-left: 16px;
-    margin-top: 16px;
-    margin-bottom: 19px;
-
+    margin: 16px 8px 19px 16px;
   }
 
   main > .preview {
-
-    margin-right: 16px;
-    margin-top: 16px;
-    margin-bottom: 19px;
+    width:65%;
+    margin:16px 16px 19px 8px;
   }
 </style>

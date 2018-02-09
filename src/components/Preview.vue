@@ -8,9 +8,9 @@
     name:'Preview'
   }
 </script>
-<style>
+<style lang="scss">
   #preview{
-    width:61.66667%;
+    border-radius: 4px;
     height:100%;
     background:#ffffff;
     box-shadow:inset 0 1px 3px 0 rgba(0,0,0,0.25);

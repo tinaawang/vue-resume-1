@@ -1,6 +1,10 @@
 <template>
   <div id="topbar">
     <div id="topbar_logo">{{text}}</div>
+    <dvi class="actions">
+      <el-button type="primary">登录</el-button>
+      <el-button type="success">注册</el-button>
+    </dvi>
   </div>
 </template>
 <script>
@@ -13,21 +17,27 @@
     }
   }
 </script>
-<style>
+<style lang="scss">
   #topbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid gray;
     max-width:1440px;
     min-width:1024px;
     padding: 16px 16px;
     height:64px;
 
-
   }
-  #topbar>#topbar_logo{
-    font-family:STHeitiSC-Light;
-    font-size:24px;
-    color:#000000;
-    letter-spacing:0;
-    line-height: 32px;
+
+  #topbar {
+    #topbar_logo {
+      font-family: STHeitiSC-Light;
+      font-size: 24px;
+      color: #000000;
+      letter-spacing: 0;
+      line-height: 32px;
+    }
   }
 </style>
