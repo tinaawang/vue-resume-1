@@ -1,10 +1,10 @@
 <template>
   <div id="topbar">
     <div id="topbar_logo">{{text}}</div>
-    <dvi class="actions">
+    <div class="actions">
       <el-button type="primary">登录</el-button>
       <el-button type="success">注册</el-button>
-    </dvi>
+    </div>
   </div>
 </template>
 <script>

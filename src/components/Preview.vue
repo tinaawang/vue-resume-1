@@ -13,7 +13,7 @@
     border-radius: 4px;
     height:100%;
     background:#ffffff;
-    box-shadow:inset 0 1px 3px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
 
   }
 </style>
