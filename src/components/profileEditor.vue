@@ -2,13 +2,13 @@
   <div>
     <h2>个人信息</h2>
     <el-form  :label-position="labelPosition"  label-width="50px" :model="profile">
-      <el-form-item label="name">
+      <el-form-item label="姓名">
         <el-input v-model="profile.name"></el-input>
       </el-form-item>
-      <el-form-item label="city">
+      <el-form-item label="城市">
         <el-input v-model="profile.city"></el-input>
       </el-form-item>
-      <el-form-item label="birth">
+      <el-form-item label="出生年月">
         <el-input v-model="profile.birth"></el-input>
       </el-form-item>
     </el-form>

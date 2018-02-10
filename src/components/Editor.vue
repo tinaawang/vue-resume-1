@@ -54,28 +54,44 @@
           </li>
           ----------->
           <li v-bind:class="{active:currentTab === 0}" @click="currentTab = 0">
-            <h2>个人信息</h2>
-            <singleEditor v-bind:items="profile" v-bind:label="{name:'姓名',city:'城市',birth:'出生年月'}" v-bind:labelPosition="labelPosition"/>
+            <profileEditor v-bind:labelPosition="labelPosition"
+                           v-bind:profile="resume.profile"  v-bind:label="{name:'姓名',city:'城市',birth:'出生年月'}"/>
           </li>
            <li  v-bind:class="{active:currentTab === 1}" @click="currentTab = 1">
              <h2>工作经历</h2>
-             <ArrayEditor v-bind:labelPosition="labelPosition" v-bind:items="workHistory" v-bind:label="{company:'公司',content:'工作经历'}" />
+             <ArrayEditor v-bind:labelPosition="labelPosition" v-bind:items="resume.workHistory" v-bind:label="{company:'公司',content:'工作经历'}" />
            </li>
            <li  v-bind:class="{active:currentTab === 2}" @click="currentTab = 2">
              <h2>学习经历</h2>
-             <ArrayEditor v-bind:labelPosition=" labelPosition" v-bind:items="studyHistory" v-bind:label="{school:'学习',duration:'时间',degree:'学位'}"/>
+             <ArrayEditor v-bind:labelPosition=" labelPosition"
+                          v-bind:items="resume.studyHistory" v-bind:label="{school:'学习',duration:'时间',degree:'学位'}"/>
            </li>
            <li  v-bind:class="{active:currentTab === 3}" @click="currentTab = 3">
              <h2>项目经历</h2>
-             <ArrayEditor v-bind:labelPosition=" labelPosition" v-bind:items="projectHistory" v-bind:label="{projectName:'项目名称',introduction:'项目简介',duration:'时间'}"/>
+             <ArrayEditor v-bind:labelPosition=" labelPosition"
+                          v-bind:items="resume.projectHistory" v-bind:label="{projectName:'项目名称',introduction:'项目简介',duration:'时间'}"/>
            </li>
            <li  v-bind:class="{active:currentTab === 4}" @click="currentTab = 4">
              <h2>兴趣爱好</h2>
-             <ArrayEditor v-bind:labelPosition=" labelPosition" v-bind:items="interest" v-bind:label="{interest:`我的兴趣`}"/>
+             <ArrayEditor v-bind:labelPosition=" labelPosition"
+                          v-bind:items="resume.hobbies" v-bind:label="{hobby:`我的兴趣`}"/>
            </li>
            <li  v-bind:class="{active:currentTab === 5}" @click="currentTab = 5">
              <h2>联系方式</h2>
-             <singleEditor v-bind:labelPosition=" labelPosition" v-bind:items="Information" v-bind:label="{phone_number:'电话',email:'邮箱',address:'地址'}"/>
+             <el-form  :label-position="labelPosition"  label-width="50px" :model="resume.Information">
+               <el-form-item label="电话">
+                 <el-input v-model="resume.Information.phone_number"></el-input>
+               </el-form-item>
+               <el-form-item label="微信">
+                 <el-input v-model="resume.Information.WeiXin"></el-input>
+               </el-form-item>
+               <el-form-item label="邮箱">
+                 <el-input v-model="resume.Information.email"></el-input>
+               </el-form-item>
+               <el-form-item label="地址">
+                 <el-input v-model="resume.Information.address"></el-input>
+               </el-form-item>
+             </el-form>
            </li>
            <li  v-bind:class="{active:currentTab === 6}" @click="currentTab = 6">tab7</li>
 
@@ -84,23 +100,25 @@
   </div>
 </template>
 <script>
+  import profileEditor from './profileEditor.vue'
   import singleEditor from './singleEditor.vue'
   import ArrayEditor from './ArrayEditor.vue'
 
   export default {
-    components:{ArrayEditor,singleEditor},
+    components:{ArrayEditor,singleEditor,profileEditor},
+    props:['resume'],
     data(){
       return{
         currentTab:0,
         labelPosition:'top',
         icons:['idcard','work','school','code','interst','phone','add'],
-        profile:[{
+        profile:{
           name:'',
           city:'',
           birth:''
 
-        }],
-        workHistory:[
+        },
+        /*workHistory:[
           {company:'',content:''},
         ],
         studyHistory:[
@@ -111,7 +129,7 @@
         }],
         interest:[{
           interest:''
-        }],
+        }],*/
         Information:[{phone_number:'',email:'',address:''}]
       }
     }

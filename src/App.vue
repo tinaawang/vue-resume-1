@@ -5,8 +5,8 @@
       <Topbar class="topbar"></Topbar>
 
       <main>
-        <Editor class="editor"></Editor>
-        <Preview class="preview"></Preview>
+        <Editor  v-bind:resume="resume" class="editor"></Editor>
+        <Preview  v-bind:resume="resume" class="preview"></Preview>
       </main>
     </div>
 
@@ -21,6 +21,32 @@ export default {
   name: 'App',
   components: {
     Topbar,Editor,Preview
+  },
+  data() {
+    return {
+      resume:{
+        profile:{
+          name:'',
+          city:'',
+          birth:''
+        },
+        workHistory:[
+          {company:'',content:''},
+        ],
+        studyHistory:[
+          {school:'',duration:'',degree:''}
+        ],
+        projectHistory:[{
+          projectName:'',introduction:'',duration:''
+        }],
+        hobbies:[{
+          hobby:''
+        }],
+        Information:{phone_number:'',WeiXin:'',email:'',address:''}
+      }
+    }
+
+
   }
 }
 </script>

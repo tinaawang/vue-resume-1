@@ -33,7 +33,7 @@
     methods:{
 
       addItem() {
-        const i = [];
+        const i = {};  //传的是一个对象
         this.keys.map((key) => {
           i[key] = ''
         })
