@@ -4,6 +4,7 @@
     <div class="actions">
       <el-button type="primary">登录</el-button>
       <el-button type="success">注册</el-button>
+      <el-button @click="preview">预览</el-button>
     </div>
   </div>
 </template>
@@ -13,6 +14,11 @@
     data(){
       return{
         text:'Resume'
+      }
+    },
+    methods:{
+      preview(){
+        this.$emit('preview')
       }
     }
   }

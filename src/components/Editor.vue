@@ -64,7 +64,7 @@
            <li  v-bind:class="{active:currentTab === 2}" @click="currentTab = 2">
              <h2>学习经历</h2>
              <ArrayEditor v-bind:labelPosition=" labelPosition"
-                          v-bind:items="resume.studyHistory" v-bind:label="{school:'学习',duration:'时间',degree:'学位'}"/>
+                          v-bind:items="resume.studyHistory" v-bind:label="{school:'学校',duration:'时间',degree:'学位'}"/>
            </li>
            <li  v-bind:class="{active:currentTab === 3}" @click="currentTab = 3">
              <h2>项目经历</h2>

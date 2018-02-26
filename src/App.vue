@@ -1,15 +1,15 @@
 <template>
-  <div id="app">
+  <div id="app"  v-bind:class="{previewMode:previewMode}">
     <div class="wrapper">
 
-      <Topbar class="topbar"></Topbar>
+      <Topbar class="topbar" v-on:preview="preview"></Topbar>
 
       <main>
         <Editor  v-bind:resume="resume" class="editor"></Editor>
         <Preview  v-bind:resume="resume" class="preview"></Preview>
       </main>
     </div>
-
+    <el-button @click="exitPreview" id="exitPreview">退出预览</el-button>
   </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
   },
   data() {
     return {
+      previewMode:false,
       resume:{
         profile:{
           name:'',
@@ -47,6 +48,14 @@ export default {
     }
 
 
+  },
+  methods:{
+    preview(){
+      this.previewMode = true
+    },
+    exitPreview(){
+      this.previewMode = false
+    }
   }
 }
 </script>
@@ -59,7 +68,11 @@ export default {
     height:100%;
     background: #dddddd;
 
+
   }
+
+
+
   .icon {
     width: 1em; height: 1em;
     fill: currentColor;
@@ -72,6 +85,17 @@ export default {
     flex-direction: column;
 
   }
+  .previewMode  #exitPreview{
+    display: inline-block;
+    position: fixed;
+    bottom:20px;
+    right:40px;
+
+  }
+  #exitPreview{
+    display: none;
+  }
+
   .topbar{
     background:#ffffff;
     box-shadow:0 1px 3px 0 rgba(0,0,0,0.25);
@@ -93,6 +117,13 @@ export default {
 
   main > .preview {
     width:65%;
+    overflow: auto;
     margin:16px 16px 19px 8px;
+  }
+  .previewMode #topbar{
+    display: none;
+  }
+  .previewMode #editor{
+    display: none;
   }
 </style>
